@@ -1,19 +1,14 @@
 export default {
-  green: '#32B768',
-  green_dark: '#2B7A4B',
-  green_light: '#DAF2E4',
+  primary: '#FBA94C',
 
-  heading: '#52665A',
-  body_dark: '#738078',
-  body_light: '#AAB2AD',
-
-  background: '#FFFFFF',
-  shape: '#F0F0F0',
   white: '#FFFFFF',
-  gray: '#CFCFCF',
 
-  blue: '#3D7199',
-  blue_light: '#EBF6FF',
-
-  red: '#E83F5B',
+  gray10: '#E1E1E6',
+  gray20: '#C4C4CC',
+  gray30: '#7C7C8A',
+  gray40: '#323238',
+  gray50: '#29292E',
+  gray60: '#202024',
+  gray70: '#121214',
+  
 };
