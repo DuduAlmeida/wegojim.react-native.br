@@ -2,25 +2,25 @@ import React from "react";
 import { Image } from "react-native";
 
 import { styles } from "./styles";
-import { useSelectDivisions } from "./hooks";
+import { useSelectTraining } from "./hooks";
 import { Button } from "../../components/Form/Button";
 import { PageContainer } from "../../components/PageContainer";
 
 const questionImage = require("../../../assets/icons/question.svg");
 
 export function SelectTraining() {
-  const { list, setCurrentDivision } = useSelectDivisions();
+  const { list, setCurrentTraining } = useSelectTraining();
 
   return (
     <PageContainer>
-      {list.map((division, divisionIndex) => (
+      {list.map((training, trainingIndex) => (
         <Button
-          key={`division_${divisionIndex}`}
-          onPress={() => setCurrentDivision(division)}
+          key={`training_${trainingIndex}`}
+          onPress={() => setCurrentTraining(training)}
           justifyContent="space-between"
           content={
             <>
-              {division.title}
+              {training.title}
 
               <Image style={styles.icon} source={{ uri: questionImage }} />
             </>

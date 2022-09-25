@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { DIVISIONS_LIST } from "./constants";
-import { CURRENT_DIVISION } from "../../constants/storage";
+import { TRAINING_LIST } from "./constants";
+import { CURRENT_TRAINING } from "../../constants/storage";
 
-export const useSelectDivisions = () => {
+export const useSelectTraining = () => {
   const [list, setList] = useState<any[]>([]);
 
-  const getList = async () => setList(DIVISIONS_LIST);
+  const getList = async () => setList(TRAINING_LIST);
 
-  const setCurrentDivision = async (division: any) => {
-    AsyncStorage.setItem(CURRENT_DIVISION, JSON.stringify(division));
+  const setCurrentTraining = async (training: any) => {
+    AsyncStorage.setItem(CURRENT_TRAINING, JSON.stringify(training));
   };
 
   useEffect(() => {
@@ -19,6 +19,6 @@ export const useSelectDivisions = () => {
 
   return {
     list,
-    setCurrentDivision,
+    setCurrentTraining,
   };
 };
