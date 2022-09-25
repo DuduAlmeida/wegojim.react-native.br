@@ -10,13 +10,14 @@ import { PageContainer } from "../../components/PageContainer";
 const questionImage = require("../../../assets/icons/question.svg");
 
 export function SelectDivisions() {
-  const { list } = useSelectDivisions();
+  const { list, setCurrentDivision } = useSelectDivisions();
 
   return (
     <PageContainer>
       {list.map((division, divisionIndex) => (
         <Button
           key={`division_${divisionIndex}`}
+          onPress={() => setCurrentDivision(division)}
           justifyContent="space-between"
           content={
             <>
