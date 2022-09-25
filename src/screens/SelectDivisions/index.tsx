@@ -1,20 +1,16 @@
 import React from "react";
-import { Image, SafeAreaView } from "react-native";
-
-import { DIVISIONS_LIST } from "./constants";
-import { Header } from "../../components/Header";
-import { Button } from "../../components/Form/Button";
+import { Image } from "react-native";
 
 import { styles } from "./styles";
+import { DIVISIONS_LIST } from "./constants";
+import { Button } from "../../components/Form/Button";
+import { PageContainer } from "../../components/PageContainer";
 
 const questionImage = require("../../../assets/icons/question.svg");
 
 export function SelectDivisions() {
-  console.log('questionImage', questionImage);
-  
   return (
-    <SafeAreaView style={styles.container}>
-      <Header />
+    <PageContainer>
       {DIVISIONS_LIST.map((division, divisionIndex) => (
         <Button
           key={`division_${divisionIndex}`}
@@ -23,11 +19,11 @@ export function SelectDivisions() {
             <>
               {division.title}
 
-              <Image style={styles.icon} source={{uri: questionImage}} />
+              <Image style={styles.icon} source={{ uri: questionImage }} />
             </>
           }
         />
       ))}
-    </SafeAreaView>
+    </PageContainer>
   );
 }
