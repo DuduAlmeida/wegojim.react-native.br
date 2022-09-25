@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Home } from '../screens/Home';
-import { Login } from '../screens/Login';
+import { SelectDivisions } from '../screens/SelectDivisions';
 
 const {
   Navigator,
@@ -16,6 +16,7 @@ export function AppRoutes() {
         headerShown: false
       }}
     >
+      <Screen name="SelectDivisions" component={SelectDivisions} />
       <Screen name="Home" component={Home} />
     </Navigator>
   );
