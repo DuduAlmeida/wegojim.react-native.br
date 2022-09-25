@@ -9,7 +9,7 @@ export function Home() {
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>WEGOJIM</Text>
       <Text style={styles.subTitle}>Gym Training Tracker</Text>
-      <Button title="Teste" style={styles.button} />
+      <Button content="Teste" style={styles.button} />
     </SafeAreaView>
   );
 }
