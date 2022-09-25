@@ -8,7 +8,7 @@ import { PageContainer } from "../../components/PageContainer";
 
 const questionImage = require("../../../assets/icons/question.svg");
 
-export function SelectDivisions() {
+export function SelectTraining() {
   const { list, setCurrentDivision } = useSelectDivisions();
 
   return (
