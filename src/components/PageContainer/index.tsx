@@ -6,12 +6,13 @@ import { Header } from "../../components/Header";
 
 interface PageContainerProps {
   children: React.ReactNode;
+  hasBackButton?: boolean;
 }
 
-export function PageContainer({ children }: PageContainerProps) {
+export function PageContainer({ children, hasBackButton }: PageContainerProps) {
   return (
     <SafeAreaView style={styles.container}>
-      <Header />
+      <Header hasBackButton={hasBackButton} />
 
       {children}
     </SafeAreaView>
