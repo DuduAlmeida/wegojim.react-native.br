@@ -3,15 +3,18 @@ import { Image } from "react-native";
 
 import { styles } from "./styles";
 import { DIVISIONS_LIST } from "./constants";
+import { useSelectDivisions } from "./hooks";
 import { Button } from "../../components/Form/Button";
 import { PageContainer } from "../../components/PageContainer";
 
 const questionImage = require("../../../assets/icons/question.svg");
 
 export function SelectDivisions() {
+  const { list } = useSelectDivisions();
+
   return (
     <PageContainer>
-      {DIVISIONS_LIST.map((division, divisionIndex) => (
+      {list.map((division, divisionIndex) => (
         <Button
           key={`division_${divisionIndex}`}
           justifyContent="space-between"

@@ -1,7 +1,8 @@
-import { StyleSheet } from "react-native";
+import styled from "styled-components/native";
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+import colors from "../../themes/colors";
+
+export const Container = styled.SafeAreaView`
+  flex: 1;
+  background: ${colors.gray70};
+`;

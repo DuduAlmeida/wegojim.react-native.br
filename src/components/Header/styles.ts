@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components/native';
+import styled from 'styled-components/native';
 import Feather from '@expo/vector-icons/Feather';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { RFValue } from 'react-native-responsive-fontsize';
-
 
 export const Container = styled.View`
   flex-direction: row;

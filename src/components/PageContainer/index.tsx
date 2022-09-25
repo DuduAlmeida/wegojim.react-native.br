@@ -1,7 +1,6 @@
 import React from "react";
-import { Image, SafeAreaView } from "react-native";
 
-import { styles } from "./styles";
+import { Container } from "./styles";
 import { Header } from "../../components/Header";
 
 interface PageContainerProps {
@@ -11,10 +10,10 @@ interface PageContainerProps {
 
 export function PageContainer({ children, hasBackButton }: PageContainerProps) {
   return (
-    <SafeAreaView style={styles.container}>
+    <Container>
       <Header hasBackButton={hasBackButton} />
 
       {children}
-    </SafeAreaView>
+    </Container>
   );
 }
