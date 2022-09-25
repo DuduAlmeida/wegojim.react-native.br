@@ -3,20 +3,11 @@ import Feather from '@expo/vector-icons/Feather';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { RFValue } from 'react-native-responsive-fontsize';
 
-interface ContainerProps {
-  hasUserData: boolean;
-}
 
-export const Container = styled.View<ContainerProps>`
+export const Container = styled.View`
   flex-direction: row;
   align-items: center;
-  padding: ${({ hasUserData }) => hasUserData
-    ? `${getStatusBarHeight(true) + 16}px  24px 60px 24px`
-    : `${getStatusBarHeight(true) + 9}px 0 23px 0`
-  }
-  ${({ hasUserData }) => hasUserData && css`
-    justify-content: space-between;
-  `}
+  padding: ${getStatusBarHeight(true) + 9}px 0 23px 0;
 `;
 
 export const AboutUser = styled.View`
