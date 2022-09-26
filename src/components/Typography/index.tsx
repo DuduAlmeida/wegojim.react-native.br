@@ -4,6 +4,8 @@ import colors from "../../themes/colors";
 
 export const Title = styled.Text`
   font-size: 24px;
-  font-family: "Rubik_500Medium";
+  margin: 0 0 30px;
   color: ${colors.primary};
+  text-transform: uppercase;
+  font-family: "Rubik_500Medium";
 `;
