@@ -13,7 +13,6 @@ export const useSelectDivisions = () => {
 
   const setCurrentDivision = async (division: any) => {
     AsyncStorage.setItem(CURRENT_DIVISION, JSON.stringify(division));
-
     
     navigate('SelectTraining');
   };
