@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "savepass",
-    "slug": "savepass",
+    "name": "wegojim",
+    "slug": "wegojim",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
@@ -19,5 +19,5 @@
       }
     }
   },
-  "name": "savepass"
+  "name": "wegojim"
 }

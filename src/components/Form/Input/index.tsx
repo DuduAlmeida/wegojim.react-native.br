@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import { TextInputProps } from 'react-native';
-import { Control, Controller } from 'react-hook-form';
+import React, { useState } from "react";
+import { TextInputProps } from "react-native";
+import { Control, Controller } from "react-hook-form";
 
 import {
-  Container,
-  Label,
+  Icon,
   Error,
-  InputContainer,
+  Label,
   FormInput,
+  Container,
+  InputContainer,
   ToggleShowPassButton,
-  Icon
-} from './styles';
+} from "./styles";
+import { If } from '../../If';
 
 interface Props extends TextInputProps {
   control: Control;
   name: string;
-  title: string;
-  error: string;
+  title?: string;
+  error?: string;
 }
 
 export function Input({
@@ -31,8 +32,10 @@ export function Input({
 
   return (
     <Container>
-      <Label>{title}</Label>
-      {error && <Error>{error}</Error>}
+      <If condition={!!title}>
+        <Label>{title}</Label>
+      </If>
+      <If condition={!!error}>{error && <Error>{error}</Error>}</If>
       <Controller
         name={name}
         control={control}
@@ -45,7 +48,9 @@ export function Input({
               secureTextEntry={secureTextEntry && passwordHidden}
             />
             {secureTextEntry && (
-              <ToggleShowPassButton onPress={() => setPasswordHidden(!passwordHidden)}>
+              <ToggleShowPassButton
+                onPress={() => setPasswordHidden(!passwordHidden)}
+              >
                 <Icon name={passwordHidden ? "eye-off" : "eye"} />
               </ToggleShowPassButton>
             )}
@@ -53,5 +58,5 @@ export function Input({
         )}
       />
     </Container>
-  )
+  );
 }
