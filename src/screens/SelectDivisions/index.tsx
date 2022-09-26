@@ -12,12 +12,12 @@ export function SelectDivisions() {
   const { list, setCurrentDivision } = useSelectDivisions();
 
   return (
-    <PageContainer>
+    <PageContainer hasBackButton={false}>
       {list.map((division, divisionIndex) => (
         <Button
+          justifyContent="space-between"
           key={`division_${divisionIndex}`}
           onPress={() => setCurrentDivision(division)}
-          justifyContent="space-between"
           content={
             <>
               {division.title}

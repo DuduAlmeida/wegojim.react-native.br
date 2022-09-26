@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components/native";
 import { TouchableOpacity } from "react-native";
-import { RFValue } from "react-native-responsive-fontsize";
 
 import colors from "../../../themes/colors";
 
@@ -19,18 +18,18 @@ export const Container = styled(TouchableOpacity)<ContainerProps>`
     return colors.white;
   }};
 
-  width: 80vw;
+  width: 100%;
   padding: 0 20px;
   margin: 5px auto;
   border-radius: 4px;
   position: relative;
   align-items: center;
   justify-content: center;
-  height: ${RFValue(40)}px;
+  height: 60px;
 `;
 export const ButtonText = styled.Text<ButtonTextProps>`
   font-family: "Rubik_500Medium";
-  font-size: ${RFValue(15)}px;
+  font-size: 16px;
   color: ${colors.gray70};
   width: 100%;
 

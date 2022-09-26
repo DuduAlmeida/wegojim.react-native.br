@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 import { Header } from "../../components/Header";
 
 interface PageContainerProps {
@@ -13,7 +13,7 @@ export function PageContainer({ children, hasBackButton }: PageContainerProps) {
     <Container>
       <Header hasBackButton={hasBackButton} />
 
-      {children}
+      <Content>{children}</Content>
     </Container>
   );
 }

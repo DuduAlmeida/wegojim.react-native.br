@@ -1,41 +1,40 @@
-import styled from 'styled-components/native';
-import { TextInput } from 'react-native';
-import { RFValue } from 'react-native-responsive-fontsize';
-import Feather from '@expo/vector-icons/Feather';
+import styled from "styled-components/native";
+import { TextInput } from "react-native";
+import Feather from "@expo/vector-icons/Feather";
 
 export const Container = styled.View`
-  margin-bottom: ${RFValue(17)}px;
+  margin-bottom: 17px;
 `;
 
 export const Label = styled.Text`
-  font-family: 'Rubik_400Regular';
-  font-size: ${RFValue(15)}px;
-  color: #888D97;
+  font-family: "Rubik_400Regular";
+  font-size: 15px;
+  color: #888d97;
   margin-bottom: 7px;
 `;
 
 export const Error = styled.Text`
-  color: #E83F5B;
+  color: #e83f5b;
   margin-bottom: 4px;
-  font-family: 'Rubik_300Light';
-  font-size: ${RFValue(13)}px;
+  font-family: "Rubik_300Light";
+  font-size: 13px;
 `;
 
 export const InputContainer = styled.View`
   flex-direction: row;
   align-items: center;
 
-  background: #FFFFFF;
+  background: #ffffff;
   border: 1px #e3e4e5;
   padding: 0 20px;
   border-radius: 4px;
-  height: ${RFValue(56)}px;
+  height: 56px;
   width: 100%;
 `;
 
 export const FormInput = styled(TextInput)`
-  color: #3D434D;
-  font-size: ${(RFValue(15))}px;
+  color: #3d434d;
+  font-size: 15px;
   flex: 1;
   height: 100%;
 `;
@@ -46,7 +45,7 @@ export const ToggleShowPassButton = styled.Pressable`
 
 export const Icon = styled(Feather).attrs({
   size: 24,
-  color: '#888D97'
+  color: "#888D97",
 })`
   opacity: 0.6;
 `;
