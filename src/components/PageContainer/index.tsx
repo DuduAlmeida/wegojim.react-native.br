@@ -1,7 +1,9 @@
 import React from "react";
+import { View } from "react-native";
+import { Background } from "../Background";
 
-import { Container, Content } from "./styles";
-import { Header } from "../../components/Header";
+import { Header } from "../Header";
+import { styles } from "./styles";
 
 interface PageContainerProps {
   children: React.ReactNode;
@@ -10,10 +12,11 @@ interface PageContainerProps {
 
 export function PageContainer({ children, hasBackButton }: PageContainerProps) {
   return (
-    <Container>
+    <Background>
       <Header hasBackButton={hasBackButton} />
-
-      <Content>{children}</Content>
-    </Container>
+      <View style={styles.pageContent}>
+        {children}
+      </View>
+    </Background>
   );
 }

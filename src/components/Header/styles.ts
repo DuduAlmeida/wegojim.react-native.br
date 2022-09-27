@@ -1,32 +1,34 @@
-import styled from "styled-components/native";
-import Feather from "@expo/vector-icons/Feather";
-import { getStatusBarHeight } from "react-native-iphone-x-helper";
+import { StyleSheet } from 'react-native';
+import { THEME } from '../../theme';
 
-import colors from "../../themes/colors";
+export const styles = StyleSheet.create({
+  container: {
+    backgroundColor: THEME.COLORS.GRAY_600,
+    height: 140,
+    padding: 20,
+    display: 'flex', 
+    alignItems: 'center',
+    justifyContent: 'flex-end'
+  },
 
-export const Container = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background: ${colors.gray60};
-  padding: ${getStatusBarHeight(true) + 17}px 13px 17px;
-`;
+  content: {
+    maxWidth: 1120,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+  },
 
-export const Icon = styled(Feather)`
-  color: ${colors.gray30};
-`;
+  button: {
+  },
 
-export const BackButton = styled.Pressable`
-  min-width: 32px;
-`;
-
-export const LogoutButton = styled.Pressable`
-  min-width: 32px;
-`;
-
-export const Title = styled.Text`
-  font-size: 32px;
-  font-family: "Rubik_500Medium";
-  color: ${colors.primary};
-  margin: auto;
-`;
+  text: {
+    height: 46,
+    fontSize: THEME.FONT_SIZE.XL,
+    fontFamily: THEME.FONT_FAMILY.POPPINS.BOLD,
+    color: THEME.COLORS.PRIMARY,
+    display: 'flex',
+    justifyContent: 'flex-start'
+  }
+});

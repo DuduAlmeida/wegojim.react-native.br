@@ -1,34 +1,46 @@
-import styled from 'styled-components/native';
-import { FlatList, FlatListProps } from 'react-native';
-
-import { StyleSheet } from "react-native";
-
-import fonts from "../../themes/fonts";
-import colors from "../../themes/colors";
+import { StyleSheet } from 'react-native';
+import { THEME } from '../../theme';
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  title: {
-    fontSize: 28,
-    textAlign: "center",
-    color: colors.primary,
-    marginTop: 38,
-    fontFamily: fonts.heading,
-    lineHeight: 34,
-  },
-  subTitle: {
-    fontSize: 16,
-    textAlign: "center",
-    color: colors.primary,
-    marginTop: 38,
-    fontFamily: fonts.heading,
-    lineHeight: 34,
-  },
-  button: {
-    width: "80vw",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    title: {
+        color: THEME.COLORS.PRIMARY,
+        fontFamily: THEME.FONT_FAMILY.POPPINS.BOLD,
+        fontSize: THEME.FONT_SIZE.XL
+    },
+
+    subtitle: {
+        color: THEME.COLORS.PRIMARY,
+        fontFamily: THEME.FONT_FAMILY.POPPINS.BOLD,
+        fontSize: THEME.FONT_SIZE.MD
+    },
+
+    button: {
+        backgroundColor: THEME.COLORS.GRAY_100,
+        paddingHorizontal: 24,
+        paddingVertical: 16,
+        height: 55,
+        width: 300,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        borderRadius: 6,
+        marginTop: 20,
+    },
+
+    googleIcon: {
+        marginRight: 35,
+        marginLeft: 20
+    },
+
+    buttonText: {
+        fontFamily: THEME.FONT_FAMILY.INTER.REGULAR,
+        alignSelf: 'center'
+    }
 });
