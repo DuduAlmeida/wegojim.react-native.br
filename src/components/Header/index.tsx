@@ -1,38 +1,45 @@
-import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import React from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 
-import { If } from "../If";
-import colors from "../../themes/colors";
-import { Container, Icon, BackButton, Title, LogoutButton } from "./styles";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
-interface HeaderProps {
-  hasBackButton?: boolean;
-}
+import { styles } from './styles';
+import { THEME } from '../../theme';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type RootStackParamList = {
-  Home: undefined;
-  RegisterLoginData: undefined;
-};
+    Home: undefined;
+    RegisterLoginData: undefined;
+  };
 
-type NavigationProps = StackNavigationProp<RootStackParamList>;
+type NavigationProps = NativeStackNavigationProp<RootStackParamList>;
 
-export function Header({ hasBackButton = true }: HeaderProps) {
-  const { goBack } = useNavigation<NavigationProps>();
+interface Props {
+    hasBackButton?: boolean
+}
 
-  return (
-    <Container>
-      <BackButton onPress={hasBackButton ? goBack : () => {}}>
-        <If condition={hasBackButton}>
-          <Icon name="chevron-left" size={28} />
-        </If>
-      </BackButton>
+export function Header({ hasBackButton = true }: Props) {
+    const { goBack } = useNavigation<NavigationProps>();
 
-      <Title>WEGOJIM</Title>
+    const backArrowIcon = <Ionicons name="arrow-back" size={35} color={THEME.COLORS.PLACEHOLDER} />
+    const logoutIcon = <Ionicons name="log-out-outline" size={35} color={THEME.COLORS.PLACEHOLDER} />
 
-      <LogoutButton>
-        <Icon name="log-out" size={22} />
-      </LogoutButton>
-    </Container>
-  );
+    return (
+        <View style={styles.container}>
+            <View style={styles.content}>
+                {hasBackButton
+                    && <TouchableOpacity style={styles.button} onPress={goBack}>
+                        {backArrowIcon}
+                    </TouchableOpacity>
+                }
+
+                <Text style={styles.text}>WEGOJIM</Text>
+
+                <TouchableOpacity style={styles.button}>
+                    {logoutIcon}
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
 }

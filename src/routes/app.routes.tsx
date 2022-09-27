@@ -1,14 +1,15 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Home } from '../screens/Home';
 import { SelectTraining } from '../screens/SelectTraining';
 import { SelectDivisions } from '../screens/SelectDivisions';
+import { NavigationContainer } from '@react-navigation/native';
 
 const {
   Navigator,
   Screen
-} = createStackNavigator();
+} = createNativeStackNavigator();
 
 export function AppRoutes() {
   return (
@@ -17,9 +18,9 @@ export function AppRoutes() {
         headerShown: false
       }}
     >
+      <Screen name="Home" component={Home} />
       <Screen name="SelectDivisions" component={SelectDivisions} />
       <Screen name="SelectTraining" component={SelectTraining} />
-      <Screen name="Home" component={Home} />
     </Navigator>
   );
 }

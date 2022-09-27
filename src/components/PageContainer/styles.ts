@@ -1,13 +1,10 @@
-import styled from "styled-components/native";
+import { StyleSheet } from 'react-native';
 
-import colors from "../../themes/colors";
-
-export const Container = styled.SafeAreaView`
-  flex: 1;
-  background: ${colors.gray70};
-`;
-
-export const Content = styled.View`
-  width: 100%;
-  padding: 40px 10vw 20px;
-`;
+export const styles = StyleSheet.create({
+  pageContent: {
+    width: '100%',
+    maxWidth: 1120,
+    marginHorizontal: 'auto',
+    padding: 40
+  }
+});
