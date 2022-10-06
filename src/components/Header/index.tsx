@@ -1,38 +1,37 @@
-import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { IonHeader, IonIcon } from '@ionic/react'
 
-import { If } from "../If";
-import colors from "../../themes/colors";
-import { Container, Icon, BackButton, Title, LogoutButton } from "./styles";
+import { If } from '../If';
+import useHeader from './hooks';
+import classNames from "classnames";
+import { HeaderProps, ICON_STATE } from './types';
 
-interface HeaderProps {
-  hasBackButton?: boolean;
-}
+import "./Header.scss"
 
-type RootStackParamList = {
-  Home: undefined;
-  RegisterLoginData: undefined;
-};
-
-type NavigationProps = StackNavigationProp<RootStackParamList>;
-
-export function Header({ hasBackButton = true }: HeaderProps) {
-  const { goBack } = useNavigation<NavigationProps>();
+export const Header = ({
+  goTo = "",
+  title = "",
+  icon = "MENU",
+  className = "",
+  isExpanding = true,
+}: HeaderProps) => {
+  const { onIconClick } = useHeader({ goTo })
 
   return (
-    <Container>
-      <BackButton onPress={hasBackButton ? goBack : () => {}}>
-        <If condition={hasBackButton}>
-          <Icon name="chevron-left" size={28} />
+    <IonHeader >
+      <section className={classNames("page-header", {
+        [className]: className,
+        "page-header__expanded": !!isExpanding
+      })}>
+        <If condition={!!icon}>
+          <div
+            className="page-header__icon"
+            onClick={onIconClick}
+          >
+            <IonIcon icon={ICON_STATE[icon]} />
+          </div>
         </If>
-      </BackButton>
-
-      <Title>WEGOJIM</Title>
-
-      <LogoutButton>
-        <Icon name="log-out" size={22} />
-      </LogoutButton>
-    </Container>
-  );
+        <h1 className="page-header__title">{title}</h1>
+      </section>
+    </IonHeader>
+  )
 }

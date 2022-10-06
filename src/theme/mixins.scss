@@ -1,0 +1,65 @@
+@mixin center() {
+  margin: 0 auto;
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-centered() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-spaced() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-end() {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@mixin absolute-centered() {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+@mixin hide() {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin show() {
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin text-elipse() {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin card-pattern() {
+  border-radius: 1rem;
+  padding: 0.4rem 1rem;
+  box-shadow: var(--drop-shadow);
+  background: var(--color-white-200);
+}
+
+@mixin ease-transition {
+  transition: all 0.25s ease-in-out;
+}

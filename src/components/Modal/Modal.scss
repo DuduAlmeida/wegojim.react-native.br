@@ -1,0 +1,87 @@
+@import "theme/mixins.scss";
+
+.modal-container {
+  top: 50%;
+  left: 50%;
+  z-index: 20;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  @include hide();
+
+  &--visible {
+    @include show();
+  }
+
+  &--normal {
+    @include flex-centered;
+  }
+
+  &--upper {
+    align-items: center;
+    @include flex-column;
+    justify-content: flex-start;
+
+    .modal-container__content {
+      border-radius: 0 0 16px 16px;
+      width: 100vw;
+    }
+  }
+
+  &--bottom {
+    align-items: center;
+    @include flex-column;
+    justify-content: flex-end;
+
+    .modal-container__content {
+      border-radius: 16px 16px 0 0;
+      width: 100vw;
+    }
+  }
+
+  &__content {
+    background-color: var(--color-white-100);
+    border-radius: 16px;
+    position: absolute;
+    padding: 20px;
+    width: 90vw;
+
+    &--big {
+      height: 90vh;
+    }
+
+    &--medium {
+      height: 50vh;
+    }
+
+    &--small {
+      height: 30vh;
+    }
+  }
+
+  &__children {
+    overflow-y: auto;
+    height: calc(100% - 25px - 8px);
+    width: 100%;
+  }
+
+  &__header {
+    @include flex-spaced;
+    margin: 0 0 8px;
+    width: 100%;
+
+    span {
+      max-width: calc(100% - 15px - 25px);
+    }
+  }
+
+  &__close {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    @include flex-centered;
+    fill: var(--color-dark-300);
+  }
+}

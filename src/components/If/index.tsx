@@ -1,5 +1,4 @@
-import React from "react";
-import { IfProps } from "./types";
+import { IfProps } from './types';
 
 export const If = ({
   condition = true,

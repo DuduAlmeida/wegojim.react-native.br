@@ -1,0 +1,48 @@
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  position: relative;
+  padding: 1rem 0.5rem;
+
+  --header-title-size: 20px;
+
+  &__expanded{
+    width: calc(100% + 10vw);
+    margin-left: -5vw;
+  }
+
+  &__icon {
+    height: var(--header-title-size, 20px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+      font-size: var(--header-title-size, 20px);
+    }
+  }
+
+  &__title {
+    font-size: var(--header-title-size, 20px);
+    margin: 0 0 0 0.8rem;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__subtitle {
+    font-size: var(--header-title-size, 20px);
+    margin: 0 0 0.8rem 0;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
