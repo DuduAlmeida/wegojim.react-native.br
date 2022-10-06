@@ -9,10 +9,11 @@ import "./Header.scss"
 
 export const Header = ({
   goTo = "",
-  title = "",
-  icon = "MENU",
   className = "",
-  isExpanding = true,
+  title = "WEGOJIM",
+  isExpanded = true,
+  leftIcon = "MENU",
+  rightIcon = "MENU",
 }: HeaderProps) => {
   const { onIconClick } = useHeader({ goTo })
 
@@ -20,17 +21,25 @@ export const Header = ({
     <IonHeader >
       <section className={classNames("page-header", {
         [className]: className,
-        "page-header__expanded": !!isExpanding
+        "page-header__expanded": !!isExpanded
       })}>
-        <If condition={!!icon}>
+        <If condition={!!leftIcon}>
           <div
             className="page-header__icon"
             onClick={onIconClick}
           >
-            <IonIcon icon={ICON_STATE[icon]} />
+            <IonIcon icon={ICON_STATE[leftIcon]} />
           </div>
         </If>
         <h1 className="page-header__title">{title}</h1>
+        <If condition={!!rightIcon}>
+          <div
+            className="page-header__icon"
+            onClick={onIconClick}
+          >
+            <IonIcon icon={ICON_STATE[leftIcon]} />
+          </div>
+        </If>
       </section>
     </IonHeader>
   )

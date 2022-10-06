@@ -1,25 +1,20 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
-// import './Home.css';
+import {Header} from "components/Header"
+import {Button} from "components/Button"
 
-const Home: React.FC = () => {
+// import './Login.scss';
+
+const Login: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        teste 2
+      <IonContent fullscreen  className="login">
+        <Header />
+
+        <Button text="Login com o Google"/>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Home;
+export default Login;
