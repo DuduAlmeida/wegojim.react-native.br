@@ -1,45 +1,46 @@
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { IonHeader, IonIcon } from '@ionic/react'
 
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { If } from '../If';
+import useHeader from './hooks';
+import classNames from "classnames";
+import { HeaderProps, ICON_STATE } from './types';
 
-import { styles } from './styles';
-import { THEME } from '../../theme';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import "./Header.scss"
 
-type RootStackParamList = {
-    Home: undefined;
-    RegisterLoginData: undefined;
-  };
+export const Header = ({
+  goTo = "",
+  className = "",
+  title = "WEGOJIM",
+  isExpanded = true,
+  leftIcon = "MENU",
+  rightIcon = "MENU",
+}: HeaderProps) => {
+  const { onIconClick } = useHeader({ goTo })
 
-type NavigationProps = NativeStackNavigationProp<RootStackParamList>;
-
-interface Props {
-    hasBackButton?: boolean
-}
-
-export function Header({ hasBackButton = true }: Props) {
-    const { goBack } = useNavigation<NavigationProps>();
-
-    const backArrowIcon = <Ionicons name="arrow-back" size={35} color={THEME.COLORS.PLACEHOLDER} />
-    const logoutIcon = <Ionicons name="log-out-outline" size={35} color={THEME.COLORS.PLACEHOLDER} />
-
-    return (
-        <View style={styles.container}>
-            <View style={styles.content}>
-                {hasBackButton
-                    && <TouchableOpacity style={styles.button} onPress={goBack}>
-                        {backArrowIcon}
-                    </TouchableOpacity>
-                }
-
-                <Text style={styles.text}>WEGOJIM</Text>
-
-                <TouchableOpacity style={styles.button}>
-                    {logoutIcon}
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
+  return (
+    <IonHeader >
+      <section className={classNames("page-header", {
+        [className]: className,
+        "page-header__expanded": !!isExpanded
+      })}>
+        <If condition={!!leftIcon}>
+          <div
+            className="page-header__icon"
+            onClick={onIconClick}
+          >
+            <IonIcon icon={ICON_STATE[leftIcon]} />
+          </div>
+        </If>
+        <h1 className="page-header__title">{title}</h1>
+        <If condition={!!rightIcon}>
+          <div
+            className="page-header__icon"
+            onClick={onIconClick}
+          >
+            <IonIcon icon={ICON_STATE[leftIcon]} />
+          </div>
+        </If>
+      </section>
+    </IonHeader>
+  )
 }

@@ -1,9 +1,39 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "hooks/*": ["./hooks/*"],
+      "pages/*": ["./pages/*"],
+      "utils/*": ["./utils/*"],
+      "theme/*": ["./theme/*"],
+      "rules/*": ["./rules/*"],
+      "models/*": ["./rules/models/*"],
+      "services/*": ["./services/*"],
+      "constants/*": ["./constants/*"],
+      "components/*": ["./components/*"],
+      "assets/*": ["../public/assets/*"],
+    }
   },
-  "types": [
-    "@types/styled-components-react-native",
+  "include": [
+    "src"
   ]
 }
