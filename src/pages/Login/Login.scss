@@ -1,0 +1,25 @@
+.login {
+  &__banner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-top: -10px;
+    color: var(--color-primary);
+  }
+
+  &__logo {
+  }
+
+  &__centralized {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+    margin-top: -64px;
+  }
+}

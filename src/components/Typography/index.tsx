@@ -17,7 +17,7 @@ const Title = ({ tag = "h1", children, className, ...props }: any) => {
 
 const Subtitle = ({ tag = "h2", children, className, ...props }: any) => {
   const CustomTag = tag;
-  const titleClasses = classnames("typography__title", {
+  const titleClasses = classnames("typography__subtitle", {
     [className]: !!className,
   });
 
@@ -30,7 +30,7 @@ const Subtitle = ({ tag = "h2", children, className, ...props }: any) => {
 
 const Text = ({ tag = "p", children, className, ...props }: any) => {
   const CustomTag = tag;
-  const titleClasses = classnames("typography__title", {
+  const titleClasses = classnames("typography__text", {
     [className]: !!className,
   });
 

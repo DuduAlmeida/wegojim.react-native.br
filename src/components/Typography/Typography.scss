@@ -1,8 +1,28 @@
-.tipography {
+.typography {
+  margin: 0;
+  font-style: normal;
+
   &__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 160%;
+
+    @extend .typography;
   }
+
   &__subtitle {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 170%;
+
+    @extend .typography;
   }
+
   &__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+
+    @extend .typography;
   }
 }
