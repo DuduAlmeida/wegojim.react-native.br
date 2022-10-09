@@ -6,7 +6,7 @@
   column-gap: 5px;
 
   * {
-    color: var(--color-white-200);
+    color: var(--color-gray-500);
   }
 
   &--small {
@@ -30,25 +30,20 @@
       color: var(--color-purple-300);
     }
   }
-  
-  &--report {
-    background-color: var(--color-white-200) !important;
 
-    * {
-      color: var(--color-dark-200);
-    }
-
-    .kq-button__text {
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 20px;
-      text-align: right;
-    }
-  }
-
-  // &__icon {
-  // }
   &__text {
     font-size: 16px;
+    font-weight: 500;
+    line-height: 170%;
+  }
+
+  &__color {
+    &--yellow {
+      background: var(--color-primary) !important;
+    }
+
+    &--white {
+      background: var(--color-gray-100) !important;
+    }
   }
 }

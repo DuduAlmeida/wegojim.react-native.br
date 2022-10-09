@@ -24,8 +24,10 @@ const Login: React.FC = () => {
           </div>
 
           <Button
-            className="login__button"
+            centered
+            color="white"
             onClick={onGoogleClick}
+            className="login__button"
             text="Login com o Google"
           />
         </section>

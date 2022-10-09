@@ -9,6 +9,7 @@ import "./ButtonIcon.scss";
 export const Button = ({
   text = "",
   icon = "",
+  color = "yellow",
   variant = "",
   className = "",
   centered = false,
@@ -19,6 +20,7 @@ export const Button = ({
     <button
       onClick={onClick}
       className={classNames("kq-button btn-primary", {
+        [`kq-button__color--${color}`]: !!color,
         [`kq-button--${variant}`]: !!variant,
         [`kq-button--centered`]: centered,
         [className]: className,
