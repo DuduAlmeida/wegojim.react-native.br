@@ -9,7 +9,9 @@ const useSelectDivisions = () => {
   const [list, setList] = useState<any[]>([]);
   const [currentDivision, setCurrentDivision] = useState<any>();
 
-  const getList = async () => setList([]);
+  const getList = async () => {
+    setList([]);
+  };
 
   useEffect(() => {
     getList();
