@@ -1,0 +1,1 @@
+export const CURRENT_DIVISION: string = "WGJ_CURRENT_DIVISION";
