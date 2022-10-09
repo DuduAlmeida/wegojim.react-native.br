@@ -21,7 +21,12 @@ const useSelectDivisions = () => {
     history.push("/select-training");
   };
 
-  return { onSubmit, setCurrentDivision, list };
+  return {
+    list,
+    onSubmit,
+    setCurrentDivision,
+    canSubmit: !!currentDivision,
+  };
 };
 
 export default useSelectDivisions;

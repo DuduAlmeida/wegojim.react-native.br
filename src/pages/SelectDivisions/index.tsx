@@ -8,7 +8,8 @@ import Typography from "components/Typography";
 import "./SelectDivisions.scss";
 
 const SelectDivisions: React.FC = () => {
-  const { onSubmit, list, setCurrentDivision } = useSelectDivisions();
+  const { list, canSubmit, onSubmit, setCurrentDivision } =
+    useSelectDivisions();
 
   return (
     <IonPage>
@@ -26,6 +27,7 @@ const SelectDivisions: React.FC = () => {
 
         <Button
           onClick={onSubmit}
+          disabled={!canSubmit}
           className="select-divisions__button"
           text="Prosseguir"
         />
