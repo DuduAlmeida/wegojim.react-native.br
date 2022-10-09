@@ -1,13 +1,13 @@
 import { Redirect, Route } from "react-router";
-import Home from "../pages/Home";
+import Login from "../pages/Login";
 
 const Routes = () => (
   <>
-    <Route exact path="/home">
-      <Home />
+    <Route exact path="/login">
+      <Login />
     </Route>
     <Route exact path="/">
-      <Redirect to="/home" />
+      <Redirect to="/login" />
     </Route>
   </>
 );

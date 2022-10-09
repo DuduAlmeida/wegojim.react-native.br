@@ -1,8 +1,8 @@
 import { menu, arrowBack } from "ionicons/icons";
 
 export interface HeaderProps {
-  title: string;
   goTo?: string;
+  title?: string;
   leftIcon?: string;
   rightIcon?: string;
   className?: string;
