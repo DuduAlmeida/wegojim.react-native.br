@@ -1,4 +1,4 @@
-import { menu, arrowBack } from "ionicons/icons";
+import { menu, arrowBack, logOutOutline } from "ionicons/icons";
 
 export interface HeaderProps {
   goTo?: string;
@@ -13,4 +13,5 @@ export interface HeaderProps {
 export const ICON_STATE: Record<string, string> = {
   MENU: menu,
   BACK: arrowBack,
+  LOGOUT: logOutOutline,
 };

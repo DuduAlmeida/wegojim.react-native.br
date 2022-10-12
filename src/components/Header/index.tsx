@@ -12,8 +12,8 @@ export const Header = ({
   className = "",
   title = "WEGOJIM",
   isExpanded = true,
-  leftIcon = "MENU",
-  rightIcon = "MENU",
+  leftIcon = "BACK",
+  rightIcon = "LOGOUT",
 }: HeaderProps) => {
   const { onIconClick } = useHeader({ goTo })
 
@@ -37,7 +37,7 @@ export const Header = ({
             className="page-header__icon"
             onClick={onIconClick}
           >
-            <IonIcon icon={ICON_STATE[leftIcon]} />
+            <IonIcon icon={ICON_STATE[rightIcon]} />
           </div>
         </If>
       </section>
