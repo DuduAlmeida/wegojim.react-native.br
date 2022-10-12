@@ -14,7 +14,7 @@ const SelectDivisions: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen className="select-divisions">
-        <Header />
+        <Header goTo="/login" />
 
         {list.map((division, divisionIndex) => (
           <Typography.Text

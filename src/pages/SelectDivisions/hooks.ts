@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 
 import storage from "utils/storage";
+import services from '../../services';
 import { CURRENT_DIVISION } from "constants/storage";
 
 const useSelectDivisions = () => {
@@ -10,6 +11,7 @@ const useSelectDivisions = () => {
   const [currentDivision, setCurrentDivision] = useState<any>();
 
   const getList = async () => {
+    services.divisions.getList()
     setList([]);
   };
 

@@ -1,0 +1,1 @@
+export type FirebaseResponse = Record<string, any>
