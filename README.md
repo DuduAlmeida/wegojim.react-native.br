@@ -14,5 +14,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployed at
 
-Check out our [PRODUCTION URL](https://nextjs.org/docs/deployment) for more details.
+Check out our [PRODUCTION URL](https://wegojim-7461a.web.app/) for more details.
 We don't have a homologation environment.
+
+## Database
+
+Check out our [console for Firebase](https://console.firebase.google.com/u/1/project/wegojim-7461a/database/wegojim-7461a-default-rtdb/data) for more details.
