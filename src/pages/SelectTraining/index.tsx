@@ -4,13 +4,13 @@ import { helpCircleOutline } from "ionicons/icons";
 import { If } from "components/If";
 import classnames from "classnames";
 import { getIfHasSameId } from "./utils";
-import useSelectDivisions from "./hooks";
+import useSelectTraining from "./hooks";
 import { Button } from "components/Button";
 import Typography from "components/Typography";
 
 import "./SelectDivisions.scss";
 
-const SelectDivisions: React.FC = () => {
+const SelectTraining: React.FC = () => {
   const {
     list,
     onSubmit,
@@ -18,7 +18,7 @@ const SelectDivisions: React.FC = () => {
     openModal,
     currentDivision,
     setCurrentDivision,
-  } = useSelectDivisions();
+  } = useSelectTraining();
 
   return (
     <IonPage>
@@ -50,7 +50,7 @@ const SelectDivisions: React.FC = () => {
           ))}
         </ul>
       </IonContent>
-      <If condition={canSubmit}>
+      <If condition={!!canSubmit}>
         <IonFooter>
           <Button
             centered
@@ -65,4 +65,4 @@ const SelectDivisions: React.FC = () => {
   );
 };
 
-export default SelectDivisions;
+export default SelectTraining;
