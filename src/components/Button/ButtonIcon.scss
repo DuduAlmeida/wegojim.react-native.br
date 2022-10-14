@@ -24,25 +24,25 @@
 
   &--ghost {
     background-color: transparent !important;
-    border: 1px solid var(--color-purple-300);
+    border: 1px solid var(--color-primary);
 
     * {
-      color: var(--color-purple-300);
+      color: var(--color-primary);
     }
   }
 
   &__text {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 170%;
   }
 
   &__color {
-    &--yellow {
+    &--yellow:not(.kq-button--ghost) {
       background: var(--color-primary) !important;
     }
 
-    &--white {
+    &--white:not(.kq-button--ghost) {
       background: var(--color-gray-100) !important;
     }
   }
