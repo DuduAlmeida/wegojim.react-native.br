@@ -1,6 +1,6 @@
 import { DivisionProxy } from "./types";
-import { Division, DivisionList } from "./entities";
 import { database } from "services/firebase";
+import { Division, DivisionList } from "./entities";
 
 const getOne = async ({ event_id }: any): Promise<Function> => {
   const divisionRef = database.ref(`division/${event_id}`);
