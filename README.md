@@ -1,5 +1,9 @@
 # WEGOJIM
 
+## Layoy
+
+Open [FIGMA PROJECT](<https://www.figma.com/file/gh7gABaxGZKRDfCKAvVvN6/Untitled-(Copy)?node-id=0%3A1>) to access the project design.
+
 ## Getting Started
 
 First, run the development server:
