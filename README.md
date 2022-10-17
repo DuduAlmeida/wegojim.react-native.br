@@ -17,6 +17,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Check out our [PRODUCTION URL](https://wegojim-7461a.web.app/) for more details.
 We don't have a homologation environment.
 
+To make a new deploy, it is necessary to make a new build and then perform the deploy:
+```bash
+npm run build
+# or
+yarn build
+```
+
+```bash
+#only authorized users can deploy
+firebase deploy
+```
+
 ## Database
 
 Check out our [console for Firebase](https://console.firebase.google.com/u/1/project/wegojim-7461a/database/wegojim-7461a-default-rtdb/data) for more details.
