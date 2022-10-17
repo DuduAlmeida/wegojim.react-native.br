@@ -6,17 +6,17 @@ import services from "../../services";
 import { CURRENT_DIVISION } from "constants/storage";
 import { DivisionProxy } from "services/divisions/types";
 
-const useSelectDivisions = () => {
+const useSelectTraining = () => {
   const history = useHistory();
   const [list, setList] = useState<DivisionProxy[]>([]);
   const [currentDivision, setCurrentDivision] = useState<DivisionProxy>();
 
-  const fetchDivisions = async () => {
+  const fetchTrainings = async () => {
     services.divisions.getList().then((execute) => execute(setList));
   };
 
   useEffect(() => {
-    fetchDivisions();
+    fetchTrainings();
   }, []);
 
   const onSubmit = () => {
@@ -39,4 +39,4 @@ const useSelectDivisions = () => {
   };
 };
 
-export default useSelectDivisions;
+export default useSelectTraining;

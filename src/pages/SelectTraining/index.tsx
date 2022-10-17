@@ -1,16 +1,16 @@
 import { IonContent, IonFooter, IonIcon, IonPage } from "@ionic/react";
-import { helpCircleOutline } from "ionicons/icons";
+import { helpCircleOutline, arrowBackOutline } from "ionicons/icons";
 
 import { If } from "components/If";
 import classnames from "classnames";
 import { getIfHasSameId } from "./utils";
-import useSelectDivisions from "./hooks";
+import useSelectTraining from "./hooks";
 import { Button } from "components/Button";
 import Typography from "components/Typography";
 
-import "./SelectDivisions.scss";
+import "./SelectTraining.scss";
 
-const SelectDivisions: React.FC = () => {
+const SelectTraining: React.FC = () => {
   const {
     list,
     onSubmit,
@@ -18,21 +18,28 @@ const SelectDivisions: React.FC = () => {
     openModal,
     currentDivision,
     setCurrentDivision,
-  } = useSelectDivisions();
+  } = useSelectTraining();
 
   return (
     <IonPage>
-      <IonContent fullscreen className="select-divisions">
-        <Typography.Subtitle tag="h1">
-          Qual divisão de treino você gostaria de ter?
-        </Typography.Subtitle>
+      <IonContent fullscreen className="select-training">
+        <header className="select-training__header">
+          <IonIcon
+            icon={arrowBackOutline}
+            className="select-training__back"
+          ></IonIcon>
 
-        <ul className="select-divisions__list">
+          <Typography.Subtitle tag="h1">
+            Clique no treino desejado
+          </Typography.Subtitle>
+        </header>
+
+        <ul className="select-training__list">
           {list.map((division, divisionIndex) => (
             <li
               key={`division_${divisionIndex}`}
-              className={classnames("select-divisions__item", {
-                "select-divisions__item--selected": getIfHasSameId(
+              className={classnames("select-training__item", {
+                "select-training__item--selected": getIfHasSameId(
                   division,
                   currentDivision
                 ),
@@ -50,14 +57,14 @@ const SelectDivisions: React.FC = () => {
           ))}
         </ul>
       </IonContent>
-      <If condition={canSubmit}>
+      <If condition={!!canSubmit}>
         <IonFooter>
           <Button
             centered
             variant="ghost"
             text="CONTINUAR"
             onClick={onSubmit}
-            className="select-divisions__button"
+            className="select-training__button"
           />
         </IonFooter>
       </If>
@@ -65,4 +72,4 @@ const SelectDivisions: React.FC = () => {
   );
 };
 
-export default SelectDivisions;
+export default SelectTraining;
