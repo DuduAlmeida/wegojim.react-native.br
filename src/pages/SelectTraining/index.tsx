@@ -9,13 +9,16 @@ import { Button } from "components/Button";
 import Typography from "components/Typography";
 
 import "./SelectTraining.scss";
+import Modal from '../../components/Modal';
 
 const SelectTraining: React.FC = () => {
   const {
     list,
+    modal,
     onSubmit,
     canSubmit,
     openModal,
+    closeModal,
     currentDivision,
     setCurrentDivision,
   } = useSelectTraining();
@@ -68,6 +71,22 @@ const SelectTraining: React.FC = () => {
           />
         </IonFooter>
       </If>
+        <Modal
+          height="auto"
+          title={modal?.title}
+          visibility={!!modal}
+          closeModal={closeModal}
+          className="select-divisions__modal"
+        >
+          <Typography.Text centered>{modal?.description}</Typography.Text>
+
+          <Button
+            centered
+            variant="muted"
+            text={modal?.button?.text}
+            onClick={modal?.button?.onClick}
+          />
+        </Modal>
     </IonPage>
   );
 };

@@ -4,15 +4,16 @@ import { useHistory } from "react-router";
 import storage from "utils/storage";
 import services from "../../services";
 import { CURRENT_DIVISION } from "constants/storage";
-import { DivisionProxy } from "services/divisions/types";
+import { TrainingProxy } from "services/training/types";
 
 const useSelectTraining = () => {
   const history = useHistory();
-  const [list, setList] = useState<DivisionProxy[]>([]);
-  const [currentDivision, setCurrentDivision] = useState<DivisionProxy>();
+  const [modal, setModal] = useState<any>(null);
+  const [list, setList] = useState<TrainingProxy[]>([]);
+  const [currentTraining, setCurrentTraining] = useState<TrainingProxy>();
 
   const fetchTrainings = async () => {
-    services.divisions.getList().then((execute) => execute(setList));
+    services.training.getList().then((execute) => execute(setList));
   };
 
   useEffect(() => {
@@ -20,22 +21,28 @@ const useSelectTraining = () => {
   }, []);
 
   const onSubmit = () => {
-    storage.set(CURRENT_DIVISION, currentDivision);
+    storage.set(CURRENT_DIVISION, currentTraining);
 
     history.push("/select-training");
   };
 
-  const openModal = (division: DivisionProxy) => {
-    console.log("ABRIR A MODAL PARA A DIVISÃO:", division);
+  const openModal = (division: TrainingProxy) => {
+    setModal({
+      title: division?.title,
+      description: division?.description,
+      button: { text: "Fechar", onClick: () => setModal(null) },
+    });
   };
 
   return {
     list,
+    modal,
     onSubmit,
     openModal,
-    currentDivision,
-    setCurrentDivision,
-    canSubmit: !!currentDivision,
+    currentDivision: currentTraining,
+    setCurrentDivision: setCurrentTraining,
+    canSubmit: !!currentTraining,
+    closeModal: () => setModal(null),
   };
 };
 
