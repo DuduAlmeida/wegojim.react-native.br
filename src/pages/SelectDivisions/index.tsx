@@ -9,59 +9,80 @@ import { Button } from "components/Button";
 import Typography from "components/Typography";
 
 import "./SelectDivisions.scss";
+import Modal from "../../components/Modal";
 
 const SelectDivisions: React.FC = () => {
   const {
     list,
+    modal,
     onSubmit,
     canSubmit,
     openModal,
+    closeModal,
     currentDivision,
     setCurrentDivision,
   } = useSelectDivisions();
 
   return (
-    <IonPage>
-      <IonContent fullscreen className="select-divisions">
-        <Typography.Subtitle tag="h1">
-          Qual divisão de treino você gostaria de ter?
-        </Typography.Subtitle>
+    <>
+      <IonPage>
+        <IonContent fullscreen className="select-divisions">
+          <Typography.Subtitle tag="h1">
+            Qual divisão de treino você gostaria de ter?
+          </Typography.Subtitle>
 
-        <ul className="select-divisions__list">
-          {list.map((division, divisionIndex) => (
-            <li
-              key={`division_${divisionIndex}`}
-              className={classnames("select-divisions__item", {
-                "select-divisions__item--selected": getIfHasSameId(
-                  division,
-                  currentDivision
-                ),
-              })}
-            >
-              <Typography.Text onClick={() => setCurrentDivision(division)}>
-                {division.title}
-              </Typography.Text>
+          <ul className="select-divisions__list">
+            {list.map((division, divisionIndex) => (
+              <li
+                key={`division_${divisionIndex}`}
+                className={classnames("select-divisions__item", {
+                  "select-divisions__item--selected": getIfHasSameId(
+                    division,
+                    currentDivision
+                  ),
+                })}
+              >
+                <Typography.Text onClick={() => setCurrentDivision(division)}>
+                  {division.title}
+                </Typography.Text>
 
-              <IonIcon
-                icon={helpCircleOutline}
-                onClick={() => openModal(division)}
-              />
-            </li>
-          ))}
-        </ul>
-      </IonContent>
-      <If condition={canSubmit}>
-        <IonFooter>
+                <IonIcon
+                  icon={helpCircleOutline}
+                  onClick={() => openModal(division)}
+                />
+              </li>
+            ))}
+          </ul>
+        </IonContent>
+        <If condition={canSubmit}>
+          <IonFooter>
+            <Button
+              centered
+              variant="ghost"
+              text="CONTINUAR"
+              onClick={onSubmit}
+              className="select-divisions__button"
+            />
+          </IonFooter>
+        </If>
+        <Modal
+          height="auto"
+          title={modal?.title}
+          visibility={!!modal}
+          closeModal={closeModal}
+          className="select-divisions__modal"
+        >
+          <Typography.Text centered>{modal?.description}</Typography.Text>
+
           <Button
             centered
-            variant="ghost"
-            text="CONTINUAR"
-            onClick={onSubmit}
-            className="select-divisions__button"
+            variant="muted"
+            text={modal?.button?.text}
+            onClick={modal?.button?.onClick}
           />
-        </IonFooter>
-      </If>
-    </IonPage>
+        </Modal>
+      </IonPage>
+    </>
   );
 };
 

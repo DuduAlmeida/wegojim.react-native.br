@@ -68,11 +68,16 @@
   }
 
   &__header {
-    @include flex-spaced;
+    @include flex-centered;
     margin: 0 0 8px;
     width: 100%;
 
     span {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 140%;
+      text-transform: uppercase;
+      color: var(--color-gray-200);
       max-width: calc(100% - 15px - 25px);
     }
   }

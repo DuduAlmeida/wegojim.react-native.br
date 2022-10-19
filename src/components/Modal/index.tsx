@@ -38,11 +38,6 @@ const Modal = ({
         >
           <div className="modal-container__header">
             <span>{title}</span>
-            <IonIcon
-              icon={close}
-              onClick={closeModal}
-              className="modal-container__close"
-            />
           </div>
           <div className="modal-container__children">{children}</div>
         </div>

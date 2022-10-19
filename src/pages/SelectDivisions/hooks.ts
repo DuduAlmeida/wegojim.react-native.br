@@ -8,6 +8,7 @@ import { DivisionProxy } from "services/divisions/types";
 
 const useSelectDivisions = () => {
   const history = useHistory();
+  const [modal, setModal] = useState<any>(null);
   const [list, setList] = useState<DivisionProxy[]>([]);
   const [currentDivision, setCurrentDivision] = useState<DivisionProxy>();
 
@@ -26,16 +27,23 @@ const useSelectDivisions = () => {
   };
 
   const openModal = (division: DivisionProxy) => {
-    console.log("ABRIR A MODAL PARA A DIVISÃO:", division);
+    console.log("Open", division)
+    setModal({
+      title: division?.title,
+      description: division?.description,
+      button: { text: "Fechar", onClick: () => setModal(null) },
+    });
   };
 
   return {
     list,
+    modal,
     onSubmit,
     openModal,
     currentDivision,
     setCurrentDivision,
     canSubmit: !!currentDivision,
+    closeModal: () => setModal(null),
   };
 };
 

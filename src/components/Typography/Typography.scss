@@ -8,6 +8,10 @@
     line-height: 160%;
 
     @extend .typography;
+
+    &--centered{
+      text-align: center;
+    }
   }
 
   &__subtitle {
@@ -16,6 +20,10 @@
     line-height: 170%;
 
     @extend .typography;
+
+    &--centered{
+      text-align: center;
+    }
   }
 
   &__text {
@@ -24,5 +32,9 @@
     line-height: 160%;
 
     @extend .typography;
+
+    &--centered{
+      text-align: center;
+    }
   }
 }
