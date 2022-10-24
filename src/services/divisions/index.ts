@@ -19,13 +19,18 @@ const getOne = async ({ event_id }: any): Promise<Function> => {
   return execute;
 };
 
-const getList = async () => {
+const getList = async ({ name = "" }) => {
   const divisionRef = database.ref(`division`);
+
+  const filterDivisionByName = (division: any) =>
+    division?.title.toLowerCase().indexOf(name) >= 0;
 
   const execute = (getData = (_data: DivisionProxy[]): any => _data) => {
     divisionRef.on("value", (event) => {
       const databaseDivision = event.val();
-      let data = DivisionList(databaseDivision ?? {});
+      let data = DivisionList(
+        databaseDivision?.filter(filterDivisionByName) ?? {}
+      );
 
       getData(data);
     });
