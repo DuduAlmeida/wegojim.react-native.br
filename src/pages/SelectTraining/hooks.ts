@@ -13,7 +13,7 @@ const useSelectTraining = () => {
   const [currentTraining, setCurrentTraining] = useState<TrainingProxy>();
 
   const fetchTrainings = async () => {
-    services.training.getList().then((execute) => execute(setList));
+    services.training.getList({}).then((execute) => execute(setList));
   };
 
   useEffect(() => {

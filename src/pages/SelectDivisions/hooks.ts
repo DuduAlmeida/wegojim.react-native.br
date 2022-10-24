@@ -13,7 +13,7 @@ const useSelectDivisions = () => {
   const [currentDivision, setCurrentDivision] = useState<DivisionProxy>();
 
   const fetchDivisions = async () => {
-    services.divisions.getList().then((execute) => execute(setList));
+    services.divisions.getList({}).then((execute) => execute(setList));
   };
 
   useEffect(() => {

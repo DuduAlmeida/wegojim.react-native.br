@@ -19,15 +19,21 @@ const getOne = async ({ event_id }: any): Promise<Function> => {
   return execute;
 };
 
-const getList = async () => {
+const getList = async ({ name = "" }) => {
   const trainingRef = database.ref(`division`);
+
+
+  const filterTrainingByName = (training: TrainingProxy) =>
+    !!training?.title
+      ? training?.title.toLowerCase().indexOf(name) >= 0
+      : false;
 
   const execute = (getData = (_data: TrainingProxy[]): any => _data) => {
     trainingRef.on("value", (event) => {
       const databaseDivision = event.val();
       let data = TrainingList(databaseDivision ?? {});
 
-      getData(data);
+      getData(data.filter(filterTrainingByName));
     });
   };
 
