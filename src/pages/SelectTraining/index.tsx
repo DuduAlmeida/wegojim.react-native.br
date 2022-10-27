@@ -1,5 +1,5 @@
 import { IonContent, IonFooter, IonIcon, IonPage } from "@ionic/react";
-import { helpCircleOutline, arrowBackOutline } from "ionicons/icons";
+import { helpCircleOutline, arrowBackOutline, backspace } from "ionicons/icons";
 
 import { If } from "components/If";
 import classnames from "classnames";
@@ -10,6 +10,7 @@ import Typography from "components/Typography";
 
 import "./SelectTraining.scss";
 import Modal from '../../components/Modal';
+import { Input } from "components/Input";
 
 const SelectTraining: React.FC = () => {
   const {
@@ -37,7 +38,9 @@ const SelectTraining: React.FC = () => {
           </Typography.Subtitle>
         </header>
 
-        <ul className="select-training__list">
+        <Input />
+
+        {/* <ul className="select-training__list">
           {list.map((division, divisionIndex) => (
             <li
               key={`division_${divisionIndex}`}
@@ -58,7 +61,7 @@ const SelectTraining: React.FC = () => {
               />
             </li>
           ))}
-        </ul>
+        </ul> */}
       </IonContent>
       <If condition={!!canSubmit}>
         <IonFooter>

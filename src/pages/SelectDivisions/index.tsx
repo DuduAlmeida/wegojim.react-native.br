@@ -35,13 +35,15 @@ const SelectDivisions: React.FC = () => {
             {list.map((division, divisionIndex) => (
               <li
                 key={`division_${divisionIndex}`}
-                className={classnames("select-divisions__item", {
-                  "select-divisions__item--selected": getIfHasSameId(
+                className="select-divisions__item"
+              >
+                <button
+                  onClick={() => setCurrentDivision(division)}
+                  className={getIfHasSameId(
                     division,
                     currentDivision
-                  ),
-                })}
-              >
+                  ) ? "select-divisions__item--radio-selected" : "select-divisions__item--radio" }
+                ></button>
                 <Typography.Text onClick={() => setCurrentDivision(division)}>
                   {division.title}
                 </Typography.Text>

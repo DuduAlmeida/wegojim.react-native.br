@@ -9,6 +9,10 @@
     color: var(--color-primary);
   }
 
+  &__button {
+    background: var(--color-gray-600) !important; 
+  }
+
   &__modal {
     .modal-container__children {
       @include flex-column;
@@ -42,29 +46,23 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    gap: 10px;
 
     ion-icon {
-      margin-left: 10px;
       font-size: 20px;
     }
 
-    &::before {
-      content: "";
-      display: block;
-
-      width: 19px;
-      height: 19px;
-      margin-right: 15px;
-      border-radius: 50px;
-      background: transparent;
+    &--radio {
+      border-radius: 100%;
       border: 1px solid var(--color-primary);
-      transition: 0.5s all ease-in-out;
-    }
+      transition: 0.25s all ease-in-out;
+      width: 20px;
+      height: 20px;
+      background: transparent;
 
-    &--selected {
-      &::before {
+      &-selected {
+        @extend .select-divisions__item--radio;
         background: var(--color-primary);
-        transition: 0.5s all ease-in-out;
       }
     }
   }

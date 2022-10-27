@@ -1,6 +1,24 @@
+
 .select-training {
+  --padding-top: 2vw;
   --padding-end: 5vw;
   --padding-start: 5vw;
+
+  &__back {
+    width: 1.625rem;
+    height: 1.625rem;
+    background: var(--color-gray-600);
+    border-radius: 100%;
+    padding: 0.5rem;
+  }
+
+  &__header {
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
 
   > .typography__subtitle {
     margin: 30px 0;
