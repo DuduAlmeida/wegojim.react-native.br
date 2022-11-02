@@ -9,8 +9,9 @@ import { Button } from "components/Button";
 import Typography from "components/Typography";
 
 import "./SelectTraining.scss";
-import Modal from '../../components/Modal';
+import Modal from "../../components/Modal";
 import { Input } from "components/Input";
+import { Card } from "../../components/Card";
 
 const SelectTraining: React.FC = () => {
   const {
@@ -20,8 +21,9 @@ const SelectTraining: React.FC = () => {
     canSubmit,
     openModal,
     closeModal,
-    currentDivision,
-    setCurrentDivision,
+    currentTraining,
+    doSearchDebounced,
+    setCurrentTraining,
   } = useSelectTraining();
 
   return (
@@ -38,30 +40,33 @@ const SelectTraining: React.FC = () => {
           </Typography.Subtitle>
         </header>
 
-        <Input />
+        <Input
+          className="select-training__input"
+          placeholder="Pesquisar pelo título..."
+          onChange={(event) => doSearchDebounced(event?.target)}
+        />
 
-        {/* <ul className="select-training__list">
-          {list.map((division, divisionIndex) => (
-            <li
-              key={`division_${divisionIndex}`}
-              className={classnames("select-training__item", {
-                "select-training__item--selected": getIfHasSameId(
-                  division,
-                  currentDivision
-                ),
-              })}
-            >
-              <Typography.Text onClick={() => setCurrentDivision(division)}>
-                {division.title}
-              </Typography.Text>
-
-              <IonIcon
-                icon={helpCircleOutline}
-                onClick={() => openModal(division)}
-              />
-            </li>
-          ))}
-        </ul> */}
+        <If
+          condition={!!list?.length}
+          renderIf={
+            <ul className="select-training__list">
+              {list.map((division, divisionIndex) => (
+                <Card
+                  entity={division}
+                  title={division?.title}
+                  onSuggestionClick={openModal}
+                  key={`division_${divisionIndex}`}
+                  description={division?.exercisesTitle}
+                  onClick={() => setCurrentTraining(division)}
+                  isSelected={division?.id === currentTraining?.id}
+                />
+              ))}
+            </ul>
+          }
+          renderElse={
+            <Card title="Atenção" description="Nenhum treino encontrado" />
+          }
+        />
       </IonContent>
       <If condition={!!canSubmit}>
         <IonFooter>
@@ -74,22 +79,22 @@ const SelectTraining: React.FC = () => {
           />
         </IonFooter>
       </If>
-        <Modal
-          height="auto"
-          title={modal?.title}
-          visibility={!!modal}
-          closeModal={closeModal}
-          className="select-divisions__modal"
-        >
-          <Typography.Text centered>{modal?.description}</Typography.Text>
+      <Modal
+        height="auto"
+        title={modal?.title}
+        visibility={!!modal}
+        closeModal={closeModal}
+        className="select-divisions__modal"
+      >
+        <Typography.Text centered>{modal?.description}</Typography.Text>
 
-          <Button
-            centered
-            variant="muted"
-            text={modal?.button?.text}
-            onClick={modal?.button?.onClick}
-          />
-        </Modal>
+        <Button
+          centered
+          variant="muted"
+          text={modal?.button?.text}
+          onClick={modal?.button?.onClick}
+        />
+      </Modal>
     </IonPage>
   );
 };

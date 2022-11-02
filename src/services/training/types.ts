@@ -5,4 +5,5 @@ export type TrainingProxy = {
   divisionId?: string;
   description?: string;
   listExercises?: string[];
+  exercisesTitle: string;
 };

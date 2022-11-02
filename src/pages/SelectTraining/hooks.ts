@@ -1,24 +1,36 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 
 import storage from "utils/storage";
 import services from "../../services";
+import debounce from "lodash.debounce";
 import { CURRENT_DIVISION } from "constants/storage";
 import { TrainingProxy } from "services/training/types";
 
 const useSelectTraining = () => {
   const history = useHistory();
   const [modal, setModal] = useState<any>(null);
+  const [search, setSearch] = useState<string>("");
   const [list, setList] = useState<TrainingProxy[]>([]);
   const [currentTraining, setCurrentTraining] = useState<TrainingProxy>();
 
+  const doSearchDebounced = useRef(
+    debounce((newSearch: any) => {
+      setCurrentTraining(undefined);
+      setSearch(newSearch?.value || "");
+    }, 1000)
+  ).current;
+
   const fetchTrainings = async () => {
-    services.training.getList({}).then((execute) => execute(setList));
+    services.training
+      .getList({ name: search })
+      .then((execute) => execute(setList));
   };
 
   useEffect(() => {
     fetchTrainings();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
 
   const onSubmit = () => {
     storage.set(CURRENT_DIVISION, currentTraining);
@@ -26,10 +38,10 @@ const useSelectTraining = () => {
     history.push("/select-training");
   };
 
-  const openModal = (division: TrainingProxy) => {
+  const openModal = (training: TrainingProxy) => {
     setModal({
-      title: division?.title,
-      description: division?.description,
+      title: training?.title,
+      description: training?.description,
       button: { text: "Fechar", onClick: () => setModal(null) },
     });
   };
@@ -39,8 +51,9 @@ const useSelectTraining = () => {
     modal,
     onSubmit,
     openModal,
-    currentDivision: currentTraining,
-    setCurrentDivision: setCurrentTraining,
+    currentTraining,
+    doSearchDebounced,
+    setCurrentTraining,
     canSubmit: !!currentTraining,
     closeModal: () => setModal(null),
   };

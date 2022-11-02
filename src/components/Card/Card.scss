@@ -1,0 +1,21 @@
+.wgj-card {
+  margin: 24px 0;
+  border-radius: 6px;
+  background: #fba94c;
+
+  &--selected {
+    border: 1px solid #f5f5f5;
+    box-shadow: -2px -2px 10px #fb9623, 2px 2px 10px #fba94c;
+  }
+
+  &__title {
+    color: #fba94c;
+    padding: 12px 18px;
+    background: #202024;
+  }
+
+  &__content {
+    color: #29292e;
+    padding: 12px 18px;
+  }
+}

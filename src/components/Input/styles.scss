@@ -2,12 +2,15 @@
   width: 100%;
 
   &__textfield {
+    margin: 12px 0;
     width: 100%;
-    padding: 10px;
-    background: red;
+    padding: 18px 26px;
+    border: none;
+    color: #7c7c8a;
+    border-radius: 6px;
+    background: #202024;
   }
 
   button {
-
   }
 }

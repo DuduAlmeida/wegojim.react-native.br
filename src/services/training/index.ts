@@ -3,7 +3,7 @@ import { database } from "services/firebase";
 import { Training, TrainingList } from "./entities";
 
 const getOne = async ({ event_id }: any): Promise<Function> => {
-  const trainingRef = database.ref(`division/${event_id}`);
+  const trainingRef = database.ref(`training/${event_id}`);
 
   const execute = (getData = (_data: TrainingProxy): any => _data) => {
     trainingRef.on("value", (event) => {
@@ -20,8 +20,7 @@ const getOne = async ({ event_id }: any): Promise<Function> => {
 };
 
 const getList = async ({ name = "" }) => {
-  const trainingRef = database.ref(`division`);
-
+  const trainingRef = database.ref(`training`);
 
   const filterTrainingByName = (training: TrainingProxy) =>
     !!training?.title

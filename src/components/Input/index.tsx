@@ -2,6 +2,8 @@ import { IonIcon, IonInput } from "@ionic/react";
 import { search } from "ionicons/icons";
 import { InputProps } from "./types";
 
+import "./styles.scss"
+
 export function Input({ ...props }: InputProps) {
   return (
     <div className="input">
@@ -9,13 +11,13 @@ export function Input({ ...props }: InputProps) {
       { ...props }
       className="input__textfield"
     />
-    <button
+    {/* <button
       className="input__button"
     >
       <IonIcon
         icon={search}
       />
-    </button>
+    </button> */}
     </div>
   )
 }
