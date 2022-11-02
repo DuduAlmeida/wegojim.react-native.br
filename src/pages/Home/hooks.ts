@@ -7,7 +7,7 @@ import debounce from "lodash.debounce";
 import { CURRENT_DIVISION } from "constants/storage";
 import { TrainingProxy } from "services/training/types";
 
-const useSelectTraining = () => {
+const useHome = () => {
   const history = useHistory();
   const [modal, setModal] = useState<any>(null);
   const [search, setSearch] = useState<string>("");
@@ -59,4 +59,4 @@ const useSelectTraining = () => {
   };
 };
 
-export default useSelectTraining;
+export default useHome;

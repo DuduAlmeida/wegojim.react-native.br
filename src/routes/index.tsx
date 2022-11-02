@@ -1,5 +1,6 @@
 import { Redirect, Route } from "react-router";
 
+import Home from '../pages/Home';
 import Login from "../pages/Login";
 import SelectTraining from "pages/SelectTraining";
 import SelectDivisions from "pages/SelectDivisions";
@@ -11,6 +12,9 @@ const Routes = () => (
     </Route>
     <Route exact path="/select-divisions">
       <SelectDivisions />
+    </Route>
+    <Route exact path="/home">
+      <Home />
     </Route>
     <Route exact path="/select-training">
       <SelectTraining />
