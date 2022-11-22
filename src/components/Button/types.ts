@@ -1,4 +1,6 @@
-export interface ButtonProps {
+import { HTMLProps } from "react";
+
+export interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   text: string;
   icon?: string;
   centered?: boolean;

@@ -28,10 +28,14 @@ const Home: React.FC = () => {
             className="select-training__back"
           ></IonIcon>
 
-          <Typography.Subtitle tag="h1">EM CONSTRUÇÃO</Typography.Subtitle>
+          <Typography.Subtitle tag="h1">WEGOJYM</Typography.Subtitle>
+
+          <div />
         </header>
       </IonContent>
       <If condition={!!canSubmit}>
+        <Typography.Subtitle tag="h2">Bora treinar?</Typography.Subtitle>
+
         <IonFooter>
           <Button
             centered

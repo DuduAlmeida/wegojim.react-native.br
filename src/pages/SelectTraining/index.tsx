@@ -33,6 +33,7 @@ const SelectTraining: React.FC = () => {
           <IonIcon
             icon={arrowBackOutline}
             className="select-training__back"
+            // TODO: ADD ONCLICK EVENT
           ></IonIcon>
 
           <Typography.Subtitle tag="h1">
