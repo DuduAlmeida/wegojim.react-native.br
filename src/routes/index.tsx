@@ -5,8 +5,10 @@ import Login from "../pages/Login";
 import SelectTraining from "pages/SelectTraining";
 import SelectDivisions from "pages/SelectDivisions";
 
+import { AuthContextProvider } from "contexts/AuthContext";
+
 const Routes = () => (
-  <>
+  <AuthContextProvider>
     <Route exact path="/login">
       <Login />
     </Route>
@@ -22,7 +24,7 @@ const Routes = () => (
     <Route exact path="/">
       <Redirect to="/login" />
     </Route>
-  </>
+  </AuthContextProvider>
 );
 
 export default Routes;
