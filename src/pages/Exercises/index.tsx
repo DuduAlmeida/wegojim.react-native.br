@@ -19,7 +19,7 @@ export const Exercises: React.FC<ExercisesPageProps> = ({ match }) => {
   return (
     <IonPage>
       <IonContent fullscreen className="exercises">
-        <Header />
+        <Header goTo="/home" />
 
         <Typography.Text tag="h3" color="white" className="exercises__subtitle">
           HOJE É DIA DE:

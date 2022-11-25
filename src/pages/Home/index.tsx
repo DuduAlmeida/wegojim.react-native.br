@@ -15,7 +15,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen className="home">
-        <Header />
+        <Header leftIcon={null} />
 
         <Typography.Subtitle tag="h2" color="primary">
           Bora treinar?
