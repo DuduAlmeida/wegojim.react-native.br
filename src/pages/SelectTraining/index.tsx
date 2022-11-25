@@ -23,6 +23,7 @@ const SelectTraining: React.FC = () => {
     closeModal,
     currentTraining,
     doSearchDebounced,
+    onBackButtonClick,
     setCurrentTraining,
   } = useSelectTraining();
 
@@ -32,8 +33,8 @@ const SelectTraining: React.FC = () => {
         <header className="select-training__header">
           <IonIcon
             icon={arrowBackOutline}
+            onClick={onBackButtonClick}
             className="select-training__back"
-            // TODO: ADD ONCLICK EVENT
           ></IonIcon>
 
           <Typography.Subtitle tag="h1">

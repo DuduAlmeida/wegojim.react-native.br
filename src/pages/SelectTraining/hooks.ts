@@ -32,6 +32,10 @@ const useSelectTraining = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
+  const onBackButtonClick = () => {
+    history.push("/select-divisions");
+  };
+
   const onSubmit = () => {
     storage.set(CURRENT_DIVISION, currentTraining);
 
@@ -53,6 +57,7 @@ const useSelectTraining = () => {
     openModal,
     currentTraining,
     doSearchDebounced,
+    onBackButtonClick,
     setCurrentTraining,
     canSubmit: !!currentTraining,
     closeModal: () => setModal(null),
