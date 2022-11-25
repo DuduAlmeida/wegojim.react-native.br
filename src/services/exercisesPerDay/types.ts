@@ -5,6 +5,7 @@ export type ExerciseProxy = {
   series?: string;
   repetitions?: string;
   demonstrationUrl?: string;
+  isRepetitionsAText?: boolean;
 };
 
 export type ExercisePerDayProxy = {

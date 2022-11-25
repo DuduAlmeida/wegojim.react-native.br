@@ -1,5 +1,14 @@
-.exercise {
+.exercises {
   --padding-top: 2vw;
   --padding-end: 5vw;
   --padding-start: 5vw;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__submit {
+    --color-primary: #00b37e;
+  }
 }

@@ -22,9 +22,11 @@ const Routes = () => (
     <Route exact path="/select-training">
       <SelectTraining />
     </Route>
-    <Route exact path="/do-exercises/:exerciseId">
-      <Exercises />
-    </Route>
+    <Route
+      exact
+      path="/do-exercises/:exerciseId"
+      render={(props) => <Exercises {...props} />}
+    />
     <Route exact path="/">
       <Redirect to="/login" />
     </Route>

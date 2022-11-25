@@ -1,0 +1,55 @@
+.exercise-card {
+  --card-color: #fba94c;
+  --button-color: #313137;
+
+  min-height: 100px;
+  border: 1.5px solid var(--card-color);
+  border-radius: 20px;
+
+  margin: 24px 0;
+  padding: 8px 16px;
+  background: transparent;
+
+  &--active {
+    --card-color: #00b37e;
+    --button-color: var(--card-color);
+  }
+
+  &__title {
+    width: 100%;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+
+    margin-bottom: 8px;
+  }
+
+  .typography__text--primary,
+  .typography__subtitle--primary,
+  .typography__title--primary {
+    color: var(--card-color);
+  }
+
+  &__toggle {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: var(--button-color);
+    box-shadow: 0px 0px 4px #7c7c8a;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > section {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

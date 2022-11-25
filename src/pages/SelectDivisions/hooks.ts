@@ -27,7 +27,6 @@ const useSelectDivisions = () => {
   };
 
   const openModal = (division: DivisionProxy) => {
-    console.log("Open", division)
     setModal({
       title: division?.title,
       description: division?.description,
