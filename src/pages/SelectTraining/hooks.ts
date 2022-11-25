@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import storage from "utils/storage";
 import services from "../../services";
 import debounce from "lodash.debounce";
-import { CURRENT_DIVISION } from "constants/storage";
+import { CURRENT_TRAINNING } from "constants/storage";
 import { TrainingProxy } from "services/training/types";
 
 const useSelectTraining = () => {
@@ -37,7 +37,7 @@ const useSelectTraining = () => {
   };
 
   const onSubmit = () => {
-    storage.set(CURRENT_DIVISION, currentTraining);
+    storage.set(CURRENT_TRAINNING, currentTraining);
 
     history.push("/home");
   };

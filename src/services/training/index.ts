@@ -2,14 +2,14 @@ import { TrainingProxy } from "./types";
 import { database } from "services/firebase";
 import { Training, TrainingList } from "./entities";
 
-const getOne = async ({ event_id }: any): Promise<Function> => {
-  const trainingRef = database.ref(`training/${event_id}`);
+const getOne = async ({ training_id }: any): Promise<Function> => {
+  const trainingRef = database.ref(`training/${training_id}`);
 
   const execute = (getData = (_data: TrainingProxy): any => _data) => {
     trainingRef.on("value", (event) => {
       const databaseDivision = event.val();
       const data = Training(
-        { id: event_id, ...databaseDivision } ?? { id: event_id }
+        { id: training_id, ...databaseDivision } ?? { id: training_id }
       );
 
       getData(data);

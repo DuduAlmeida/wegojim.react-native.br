@@ -2,14 +2,14 @@ import { DivisionProxy } from "./types";
 import { database } from "services/firebase";
 import { Division, DivisionList } from "./entities";
 
-const getOne = async ({ event_id }: any): Promise<Function> => {
-  const divisionRef = database.ref(`division/${event_id}`);
+const getOne = async ({ division_id }: any): Promise<Function> => {
+  const divisionRef = database.ref(`division/${division_id}`);
 
   const execute = (getData = (_data: DivisionProxy): any => _data) => {
     divisionRef.on("value", (event) => {
       const databaseDivision = event.val();
       const data = Division(
-        { id: event_id, ...databaseDivision } ?? { id: event_id }
+        { id: division_id, ...databaseDivision } ?? { id: division_id }
       );
 
       getData(data);
@@ -30,9 +30,7 @@ const getList = async ({ name = "" }) => {
   const execute = (getData = (_data: DivisionProxy[]): any => _data) => {
     divisionRef.on("value", (event) => {
       const databaseDivision = event.val();
-      let data = DivisionList(
-        databaseDivision ?? {}
-      );
+      let data = DivisionList(databaseDivision ?? {});
 
       getData(data.filter(filterDivisionByName));
     });
