@@ -53,7 +53,8 @@ const useHome = () => {
   return {
     list,
     suggestion,
-    onSelect: () => history.push("/home"),
+    onSelect: (exercise?: ExercisePerDayProxy) =>
+      history.push(`/do-exercise/${exercise?.id}`),
   };
 };
 

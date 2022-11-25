@@ -1,1 +1,1 @@
-export type SuggestionProps = { text: string };
+export type SuggestionProps = { text: string; onClick?: (e: any) => void };

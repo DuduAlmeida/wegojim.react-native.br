@@ -10,7 +10,7 @@ import { Suggestion } from "./components/Suggestion";
 import "./Home.scss";
 
 const Home: React.FC = () => {
-  const { list, suggestion } = useHome();
+  const { list, suggestion, onSelect } = useHome();
 
   return (
     <IonPage>
@@ -21,11 +21,18 @@ const Home: React.FC = () => {
           Bora treinar?
         </Typography.Subtitle>
 
-        <Suggestion text={suggestion?.title || ""} />
+        <Suggestion
+          text={suggestion?.title || ""}
+          onClick={(e) => onSelect(suggestion)}
+        />
         <TextDivider>OU</TextDivider>
         <ul>
           {list.map((exercise, index) => (
-            <Topic key={index} text={exercise.title || ""} />
+            <Topic
+              key={index}
+              text={exercise.title || ""}
+              onClick={(e) => onSelect(exercise)}
+            />
           ))}
         </ul>
       </IonContent>

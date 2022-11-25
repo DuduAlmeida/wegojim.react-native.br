@@ -1,1 +1,1 @@
-export type TopicProps = { text: string };
+export type TopicProps = { text: string; onClick?: (e: any) => void };
