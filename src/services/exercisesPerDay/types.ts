@@ -1,4 +1,5 @@
 export type ExerciseProxy = {
+  id?: string;
   type?: string;
   title?: string;
   series?: string;
