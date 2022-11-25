@@ -1,1 +1,3 @@
 export const CURRENT_DIVISION: string = "WGJ_CURRENT_DIVISION";
+export const CURRENT_TRAINNING: string = "WGJ_CURRENT_TRAINNING";
+export const LAST_EXERCISE_PER_DAY: string = "WGJ_LAST_EXERCISE_PER_DAY";
