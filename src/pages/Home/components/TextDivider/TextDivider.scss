@@ -1,0 +1,28 @@
+.text-divider {
+  position: relative;
+  color: var(--color-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    height: 1px;
+    width: 100%;
+    margin: auto 0;
+    background: var(--color-primary);
+  }
+
+  &__text {
+    width: auto;
+    height: calc(100% + 2px);
+    padding: 0 20px;
+    position: absolute;
+    background: var(--color-background);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
