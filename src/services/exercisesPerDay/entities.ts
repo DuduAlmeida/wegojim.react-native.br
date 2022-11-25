@@ -6,10 +6,13 @@ export const ExercisesPerDay = (response: any = {}): ExercisePerDayProxy => {
   const listAvailableTrainingId = response?.listAvailableTrainingId || [];
 
   return {
-    listExercises,
     listAvailableTrainingId,
     title: response?.title || "",
     id: response?.id || "#id_error",
+    listExercises: listExercises.map((item: any, index: number) => ({
+      ...item,
+      id: index + 1,
+    })),
   };
 };
 

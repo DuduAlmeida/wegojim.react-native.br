@@ -20,6 +20,8 @@ const useExercises = ({ exercise_id = "" }: useExercisesProps) => {
   };
 
   const onToggle = (exerciseId: string) => {
+    console.log("onToggle", exerciseId);
+
     const listUpdated = list.map((exercise) => {
       if (String(exercise?.id) === String(exerciseId))
         return { ...exercise, isActive: !exercise.isActive };

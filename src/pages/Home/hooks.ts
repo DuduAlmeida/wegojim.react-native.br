@@ -13,17 +13,52 @@ const useHome = () => {
   const [list, setList] = useState<ExercisePerDayProxy[]>([]);
   const [suggestion, setSuggestion] = useState<ExercisePerDayProxy>();
 
+  const setListByOrder = (exercises: ExercisePerDayProxy[]) => {
+    setSuggestion(exercises[0]);
+    setList(exercises?.slice(1));
+  };
+
+  const setListBySuggestionPosition = (
+    exercises: ExercisePerDayProxy[],
+    position: number
+  ) => {
+    setSuggestion(exercises[position]);
+    setList([
+      ...exercises.slice(0, position),
+      ...exercises.slice(position + 1, exercises.length),
+    ]);
+  };
+
   const handleFetch = async (exercises: ExercisePerDayProxy[]) => {
     const storedSuggestion: ExercisePerDayProxy = storage.get(
       LAST_EXERCISE_PER_DAY
     );
     const hasToSuggestToUser = !!storedSuggestion?.id;
 
+    console.log("storedSuggestion", hasToSuggestToUser, storedSuggestion);
+
     if (hasToSuggestToUser) {
-    } else {
-      setSuggestion(exercises[0]);
-      setList(exercises?.slice(1));
+      const suggestionIndex = exercises.findIndex(
+        (exercise) => exercise?.id === storedSuggestion?.id
+      );
+
+      console.log("suggestionIndex >= 0", suggestionIndex >= 0);
+
+      if (suggestionIndex < 0) return setListByOrder(exercises);
+      const newSuggestionPosition =
+        suggestionIndex + 1 === exercises.length ? 0 : suggestionIndex + 1;
+
+      console.log(
+        "newSuggestionPosition",
+        newSuggestionPosition,
+        "suggestionIndex",
+        suggestionIndex
+      );
+
+      return setListBySuggestionPosition(exercises, newSuggestionPosition);
     }
+
+    return setListByOrder(exercises);
   };
 
   const fetchExercisesPerDay = async () => {
