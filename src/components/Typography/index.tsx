@@ -7,11 +7,13 @@ const Title = ({
   children,
   className,
   centered = false,
+  color = "primary",
   ...props
 }: any) => {
   const CustomTag = tag;
   const titleClasses = classnames("typography__title", {
     [className]: !!className,
+    [`typography__title--${color}`]: !!color,
     "typography__title--centered": !!centered,
   });
 
@@ -27,11 +29,13 @@ const Subtitle = ({
   className,
   tag = "h2",
   centered = false,
+  color = "primary",
   ...props
 }: any) => {
   const CustomTag = tag;
   const titleClasses = classnames("typography__subtitle", {
     [className]: !!className,
+    [`typography__subtitle--${color}`]: !!color,
     "typography__subtitle--centered": !!centered,
   });
 
@@ -47,11 +51,13 @@ const Text = ({
   children,
   className,
   centered = false,
+  color = "primary",
   ...props
 }: any) => {
   const CustomTag = tag;
   const titleClasses = classnames("typography__text", {
     [className]: !!className,
+    [`typography__text--${color}`]: !!color,
     "typography__text--centered": !!centered,
   });
 
