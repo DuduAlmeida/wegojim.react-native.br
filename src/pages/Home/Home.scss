@@ -1,5 +1,4 @@
 .home {
-  --padding-top: 2vw;
   --padding-end: 5vw;
   --padding-start: 5vw;
 
@@ -10,5 +9,23 @@
   ul {
     list-style: none;
     padding: 0;
+  }
+
+  &__header {
+
+    padding: 1rem 2rem;
+
+    background: var( --color-gray-600);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ion-icon {
+      color: var(--color-primary);
+      height: 25px;
+      width: 25px;
+    }
+
   }
 }
