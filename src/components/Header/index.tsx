@@ -15,8 +15,12 @@ export const Header = ({
   isExpanded = true,
   leftIcon = "BACK",
   rightIcon = "LOGOUT",
+  onRightIconClick = (e) => e,
 }: HeaderProps) => {
-  const { onIconClick, handleSidebar, isSidebarOpen } = useHeader({ goTo });
+  const { onIconClick, handleSidebar, isSidebarOpen } = useHeader({
+    goTo,
+    onRightIconClick,
+  });
 
   return (
     <>
@@ -30,7 +34,10 @@ export const Header = ({
           <If
             condition={!!leftIcon}
             renderIf={
-              <div className="page-header__icon" onClick={leftIcon === 'MENU' ? handleSidebar : onIconClick}>
+              <div
+                className="page-header__icon"
+                onClick={leftIcon === "MENU" ? handleSidebar : onIconClick}
+              >
                 <IonIcon icon={ICON_STATE[leftIcon || ""]} />
               </div>
             }
@@ -44,7 +51,7 @@ export const Header = ({
           </If>
         </section>
       </IonHeader>
-      
+
       <Sidebar isOpen={isSidebarOpen} onClose={() => handleSidebar(false)} />
     </>
   );

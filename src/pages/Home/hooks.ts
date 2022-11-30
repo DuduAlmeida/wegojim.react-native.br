@@ -6,9 +6,12 @@ import services from "../../services";
 import { TrainingProxy } from "services/training/types";
 import { ExercisePerDayProxy } from "services/exercisesPerDay/types";
 import { CURRENT_TRAINNING, LAST_EXERCISE_PER_DAY } from "constants/storage";
+import { useAuthContext } from "contexts/AuthContext";
 
 const useHome = () => {
   const history = useHistory();
+
+  const { logout } = useAuthContext();
   const [training, setTraining] = useState<TrainingProxy>();
   const [list, setList] = useState<ExercisePerDayProxy[]>([]);
   const [suggestion, setSuggestion] = useState<ExercisePerDayProxy>();
@@ -87,6 +90,7 @@ const useHome = () => {
 
   return {
     list,
+    logout,
     suggestion,
     onSelect: (exercise?: ExercisePerDayProxy) =>
       history.push(`/do-exercises/${exercise?.id}`),

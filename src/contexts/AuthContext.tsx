@@ -17,6 +17,7 @@ type User = {
 
 type AuthContextType = {
   user: User | undefined;
+  logout: () => void;
   signInWithGoogle: () => Promise<void>;
 };
 
@@ -53,6 +54,10 @@ function AuthContextProvider(props: AuthContextProviderProps) {
     };
   }, []);
 
+  function logout() {
+    setUser(undefined);
+  }
+
   async function signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -74,15 +79,15 @@ function AuthContextProvider(props: AuthContextProviderProps) {
     }
   }
 
-  // useEffect(() => {
-  //   if (!user) {
-  //     history.push("/");
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [user]);
+  useEffect(() => {
+    if (!user) {
+      history.push("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider value={{ user, signInWithGoogle, logout }}>
       {props.children}
     </AuthContext.Provider>
   );

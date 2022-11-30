@@ -10,12 +10,16 @@ import { Suggestion } from "./components/Suggestion";
 import "./Home.scss";
 
 const Home: React.FC = () => {
-  const { list, suggestion, onSelect } = useHome();
+  const { list, suggestion, onSelect, logout } = useHome();
 
   return (
     <IonPage>
       <IonContent fullscreen className="home">
-        <Header leftIcon={"MENU"} className="home__header" />
+        <Header
+          leftIcon={"MENU"}
+          className="home__header"
+          onRightIconClick={logout}
+        />
 
         <Typography.Subtitle tag="h2" color="primary">
           Bora treinar?

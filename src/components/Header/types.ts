@@ -7,6 +7,7 @@ export interface HeaderProps {
   rightIcon?: string;
   className?: string;
   isExpanded?: boolean;
+  onRightIconClick?: (e?: any) => void;
 }
 
 // type iconNames = 'MENU' | 'BACK';
